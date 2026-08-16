@@ -35,4 +35,9 @@ export const site = {
       audience: "seller" as const,
     },
   },
+  social: {
+    instagram: "",
+    telegram: "",
+    bale: "",
+  },
 } as const;

@@ -22,6 +22,9 @@ export function Footer() {
           <a href="#faq" className="text-sm text-white/70 hover:text-white">
             پرسش‌ها
           </a>
+          <a href="#contact" className="text-sm text-white/70 hover:text-white">
+            ارتباط با ما
+          </a>
           <CtaLink audience="buyer" location="footer" className="text-sm text-white/70 hover:text-white" />
         </nav>
         <div className="space-y-2 text-sm text-white/70">

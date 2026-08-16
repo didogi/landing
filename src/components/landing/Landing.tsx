@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { initScrollDepth } from "../../lib/analytics";
 import { AudienceHow } from "./AudienceHow";
+import { Contact } from "./Contact";
 import { Difference } from "./Difference";
 import { FAQ } from "./FAQ";
 import { Footer } from "./Footer";
@@ -47,6 +48,7 @@ export function Landing() {
           <Trust />
           <FAQ />
           <Join />
+          <Contact />
         </main>
         <Footer />
         <MobileStickyCTA />
