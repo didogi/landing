@@ -27,7 +27,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
         <a href="#top" className="font-display text-xl font-semibold text-white">
-          دیدوگی
+          دیدوجی
         </a>
         <nav className="hidden items-center gap-8 lg:flex" aria-label="ناوبری">
           {NAV.map((item) => (

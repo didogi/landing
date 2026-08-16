@@ -1,5 +1,5 @@
 export const NAV = [
-  { href: "#story", label: "چرا دیدوگی" },
+  { href: "#story", label: "چرا دیدوجی" },
   { href: "#world", label: "قابلیت‌ها" },
   { href: "#how", label: "چطور کار می‌کند" },
   { href: "#sellers", label: "فروشندگان" },

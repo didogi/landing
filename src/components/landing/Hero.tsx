@@ -55,7 +55,7 @@ export function Hero() {
           <span className="mt-2 block font-medium text-white/70">از بین می‌بریم</span>
         </h1>
         <p className="lux-rise mt-6 max-w-lg text-sm leading-8 text-white/65 sm:text-base" style={{ animationDelay: "120ms" }}>
-          دیدوگی استارتاپ لایوکامرس است؛ مارکت‌پلیسی برای فروش هوشمند کالا. محصول را زنده معرفی کن، راحت با مشتری حرف بزن، بفروش یا مزایده برگزار کن — نه با ویترین ساکت و دکمهٔ خرید تنها.
+          دیدوجی استارتاپ لایوکامرس است؛ مارکت‌پلیسی برای فروش هوشمند کالا. محصول را زنده معرفی کن، راحت با مشتری حرف بزن، بفروش یا مزایده برگزار کن — نه با ویترین ساکت و دکمهٔ خرید تنها.
         </p>
         <div className="lux-rise mt-10 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "220ms" }}>
           <a

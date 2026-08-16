@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-[#05070c] px-5 py-12 sm:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:justify-between">
         <div>
-          <p className="font-display text-xl text-white">دیدوگی</p>
+          <p className="font-display text-xl text-white">دیدوجی</p>
           <p className="mt-3 max-w-xs text-sm leading-7 text-white/40">
             استارتاپ لایوکامرس. مارکت‌پلیس هوشمند فروش با معرفی زنده محصول و ارتباط واقعی با مشتری.
           </p>
@@ -27,7 +27,7 @@ export function Footer() {
           <p>تهران</p>
         </div>
       </div>
-      <p className="mx-auto mt-12 max-w-6xl text-[11px] text-white/25">© {new Date().getFullYear()} دیدوگی</p>
+      <p className="mx-auto mt-12 max-w-6xl text-[11px] text-white/25">© {new Date().getFullYear()} دیدوجی</p>
     </footer>
   );
 }
