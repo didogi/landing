@@ -1,8 +1,12 @@
+import { useId, useState } from "react";
 import { copy } from "../../content/landing.fa.ts";
 import { track } from "../../lib/analytics";
 import { Reveal } from "./Reveal";
 
 export function FAQ() {
+  const [open, setOpen] = useState<number | null>(null);
+  const baseId = useId();
+
   return (
     <section id="faq" className="below-fold bg-[#05070c] px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-3xl">
@@ -11,26 +15,41 @@ export function FAQ() {
           <h2 className="font-display mt-4 text-3xl font-semibold text-white sm:text-4xl">{copy.faq.h2}</h2>
         </Reveal>
         <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
-          {copy.faq.items.map((item, index) => (
-            <details
-              key={item.q}
-              className="group py-5"
-              onToggle={(event) => {
-                if (event.currentTarget.open) track("faq_open", { index });
-              }}
-            >
-              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-start text-base font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-                {item.q}
-                <span className="text-white/50 group-open:hidden" aria-hidden>
-                  +
-                </span>
-                <span className="hidden text-white/50 group-open:inline" aria-hidden>
-                  −
-                </span>
-              </summary>
-              <p className="mt-3 text-sm leading-8 text-white/70">{item.a}</p>
-            </details>
-          ))}
+          {copy.faq.items.map((item, index) => {
+            const isOpen = open === index;
+            const panelId = `${baseId}-panel-${index}`;
+            return (
+              <div key={item.q} className="py-2">
+                <h3>
+                  <button
+                    type="button"
+                    className="flex min-h-11 w-full cursor-pointer items-center justify-between gap-4 py-3 text-start text-base font-medium text-white"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => {
+                      const next = isOpen ? null : index;
+                      setOpen(next);
+                      if (next !== null) track("faq_open", { index: next });
+                    }}
+                  >
+                    {item.q}
+                    <span className={`inline-block text-white/50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`} aria-hidden>
+                      +
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={panelId}
+                  role="region"
+                  className={`faq-panel ${isOpen ? "is-open" : ""}`}
+                >
+                  <div>
+                    <p className="pb-3 text-sm leading-8 text-white/70">{item.a}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
