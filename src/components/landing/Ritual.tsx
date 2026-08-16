@@ -19,8 +19,7 @@ export function Ritual() {
           {STEPS.map((step, i) => (
             <li key={step.t} className="bg-[#0a0d14] p-8">
               <Reveal delay={i * 90}>
-                <p className="text-[11px] text-white/30">{["۰۱", "۰۲", "۰۳", "۰۴"][i]}</p>
-                <h3 className="font-display mt-8 text-2xl font-semibold text-white">{step.t}</h3>
+                <h3 className="font-display text-2xl font-semibold text-white">{step.t}</h3>
                 <p className="mt-3 text-sm leading-7 text-white/45">{step.d}</p>
               </Reveal>
             </li>
