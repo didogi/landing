@@ -50,25 +50,6 @@ body {
   }
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(4%, -3%, 0);
-  }
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(50%);
-  }
-}
-
 @keyframes rise {
   from {
     opacity: 0;
@@ -77,15 +58,6 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes line-in {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
   }
 }
 
@@ -101,12 +73,6 @@ body {
   }
 }
 
-@keyframes ring-spin {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
 .lux-rise {
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -114,51 +80,30 @@ body {
 .lux-kenburns {
   animation: kenburns 22s ease-out forwards;
   animation-play-state: paused;
-  will-change: transform;
-}
-
-.lux-film {
-  animation: drift 18s ease-in-out infinite;
-  animation-play-state: paused;
-  will-change: transform;
-}
-
-.lux-marquee {
-  animation: marquee 28s linear infinite;
-  animation-play-state: paused;
-  will-change: transform;
-  contain: layout paint;
 }
 
 .lux-glow {
   animation: glow-shift 12s ease-in-out infinite;
   animation-play-state: paused;
-  will-change: transform;
-  contain: layout paint;
-}
-
-.lux-ring {
-  animation: ring-spin 24s linear infinite;
-  animation-play-state: paused;
-  will-change: transform;
-  contain: layout paint;
 }
 
 .lux-kenburns.is-playing,
-.lux-film.is-playing,
-.lux-glow.is-playing,
-.lux-ring.is-playing,
-.lux-marquee.is-playing {
+.lux-glow.is-playing {
   animation-play-state: running;
-}
-
-.lux-line {
-  transform-origin: right center;
-  animation: line-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform;
 }
 
 .font-display {
   font-family: "El Messiri", "IBM Plex Sans Arabic", ui-sans-serif, sans-serif;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 
 .sr-only {
@@ -173,6 +118,24 @@ body {
   border: 0;
 }
 
+.sr-only:focus,
+.sr-only:focus-visible {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 60;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #fff;
+  color: #0f172a;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -180,11 +143,7 @@ body {
 
   .lux-rise,
   .lux-kenburns,
-  .lux-marquee,
-  .lux-glow,
-  .lux-ring,
-  .lux-line,
-  .lux-film {
+  .lux-glow {
     animation: none;
     will-change: auto;
   }

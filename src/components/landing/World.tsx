@@ -1,3 +1,4 @@
+import { copy } from "../../content/landing.fa.ts";
 import { Picture, PORTRAIT_WIDTHS } from "./Picture";
 import { Reveal } from "./Reveal";
 
@@ -13,33 +14,33 @@ const ITEMS = [
     n: "۰۲",
     name: "feat-2",
     title: "ارتباط راحت با مشتری",
-    text: "چت، فالو و اعلان؛ فروش از یک تراکنش خشک به گفت‌وگو تبدیل می‌شود.",
-    alt: "تیم در حال گفت‌وگو و همکاری",
+    text: "چت و گفت‌وگو؛ فروش از یک تراکنش خشک به مکالمه تبدیل می‌شود.",
+    alt: "گفت‌وگوی فروشنده و مشتری",
   },
   {
     n: "۰۳",
     name: "feat-3",
     title: "خرید آنی و مزایده",
-    text: "اگر کسی آماده است، همان لحظه می‌خرد. اگر هیجان جمع است، مزایده زنده قیمت را شفاف می‌سازد.",
-    alt: "مشتری در حال خرید با رضایت",
+    text: "اگر آماده است همان لحظه می‌خرد. اگر رقابت است، مزایده زنده قیمت را شفاف می‌سازد.",
+    alt: "لحظه تصمیم خرید",
   },
   {
     n: "۰۴",
     name: "feat-4",
     title: "مارکت‌پلیس هوشمند",
-    text: "فروشگاه‌ها در یک پلتفرم جمع‌اند. کشف، دنبال کردن و خرید در یک جریان — نه چند ابزار پراکنده.",
-    alt: "فضای مارکت و خرید کالا",
+    text: "فروشگاه‌ها در یک پلتفرم جمع‌اند. کشف، گفت‌وگو و خرید در یک جریان.",
+    alt: "فضای کشف محصول در مارکت‌پلیس",
   },
 ];
 
 export function World() {
   return (
-    <section id="world" className="bg-[#05070c] pb-8">
+    <section id="world" className="below-fold bg-[#05070c] pb-8">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-[13px] text-blue-300/80">قابلیت‌ها</p>
+          <p className="text-[13px] text-blue-300/90">{copy.world.label}</p>
           <h2 className="font-display mt-4 max-w-lg text-3xl font-semibold text-white sm:text-4xl">
-            فروش هوشمند، نه ویترین خاموش
+            {copy.world.h2}
           </h2>
         </Reveal>
         <div className="mt-14 space-y-20 sm:space-y-28">
@@ -54,15 +55,14 @@ export function World() {
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     width={1100}
                     height={1375}
-                    className="aspect-[4/5] h-auto w-full object-cover transition-transform duration-[1.4s] ease-out hover:scale-105"
+                    className="aspect-[4/5] h-auto w-full object-cover"
                   />
                 </div>
               </Reveal>
               <Reveal delay={80}>
-                <p className="text-sm text-white/35">{item.n}</p>
+                <p className="text-sm text-white/55">{item.n}</p>
                 <h3 className="font-display mt-4 text-2xl font-semibold text-white sm:text-3xl">{item.title}</h3>
-                <span className="mt-6 block h-px w-16 bg-white/20 lux-line" />
-                <p className="mt-6 max-w-sm text-sm leading-8 text-white/55">{item.text}</p>
+                <p className="mt-6 max-w-sm text-sm leading-8 text-white/70">{item.text}</p>
               </Reveal>
             </article>
           ))}

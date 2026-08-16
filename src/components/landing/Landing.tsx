@@ -1,55 +1,54 @@
-import { lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
+import { initScrollDepth } from "../../lib/analytics";
+import { AudienceHow } from "./AudienceHow";
+import { Difference } from "./Difference";
+import { FAQ } from "./FAQ";
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
-
-const Marquee = lazy(() => import("./Marquee"));
-const Story = lazy(() => import("./Story"));
-const Stats = lazy(() => import("./Stats"));
-const World = lazy(() => import("./World"));
-const Ritual = lazy(() => import("./Ritual"));
-const Sellers = lazy(() => import("./Sellers"));
-const Trust = lazy(() => import("./Trust"));
-const Join = lazy(() => import("./Join"));
-const Footer = lazy(() => import("./Footer"));
-
-function Slot({ minHeight }: { minHeight: number }) {
-  return <div className="bg-[#05070c]" style={{ minHeight }} aria-hidden="true" />;
-}
+import { Join } from "./Join";
+import { JsonLd } from "./JsonLd";
+import { LandingUiContext } from "./LandingUi";
+import { Marquee } from "./Marquee";
+import { MobileStickyCTA } from "./MobileStickyCTA";
+import { ProductProof } from "./ProductProof";
+import { Sellers } from "./Sellers";
+import { Story } from "./Story";
+import { Trust } from "./Trust";
+import { World } from "./World";
 
 export function Landing() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => initScrollDepth(), []);
+
   return (
-    <div className="bg-[#05070c] text-white">
-      <Header />
-      <main>
-        <Hero />
-        <Suspense fallback={<Slot minHeight={64} />}>
+    <LandingUiContext.Provider value={{ menuOpen, setMenuOpen }}>
+      <div className="bg-[#05070c] text-white">
+        <JsonLd />
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:right-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-950"
+        >
+          پرش به محتوا
+        </a>
+        <Header />
+        <main id="content">
+          <Hero />
           <Marquee />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={420} />}>
           <Story />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={180} />}>
-          <Stats />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={720} />}>
+          <Difference />
           <World />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={420} />}>
-          <Ritual />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={480} />}>
+          <ProductProof />
+          <AudienceHow />
           <Sellers />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={280} />}>
           <Trust />
-        </Suspense>
-        <Suspense fallback={<Slot minHeight={460} />}>
+          <FAQ />
           <Join />
-        </Suspense>
-      </main>
-      <Suspense fallback={<Slot minHeight={240} />}>
+        </main>
         <Footer />
-      </Suspense>
-    </div>
+        <MobileStickyCTA />
+      </div>
+    </LandingUiContext.Provider>
   );
 }
