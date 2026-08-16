@@ -1,4 +1,4 @@
-const WORDS = ["لایو", "مزایده", "آتلیه", "پوشاک", "شب فروش", "خرید آنی"];
+const WORDS = ["لایوکامرس", "معرفی زنده", "گفت‌وگو با مشتری", "مارکت‌پلیس", "خرید آنی", "مزایده زنده"];
 
 export function Marquee() {
   const row = [...WORDS, ...WORDS, ...WORDS, ...WORDS];
@@ -6,7 +6,7 @@ export function Marquee() {
     <div className="overflow-hidden border-y border-white/10 bg-[#05070c] py-5" aria-hidden="true">
       <div className="lux-marquee flex w-max gap-10 whitespace-nowrap">
         {row.map((word, i) => (
-          <span key={`${word}-${i}`} className="flex items-center gap-10 text-sm tracking-[0.35em] text-white/35">
+          <span key={`${word}-${i}`} className="flex items-center gap-10 font-display text-base text-white/40">
             {word}
             <span className="size-1 rounded-full bg-cyan-400/80" />
           </span>

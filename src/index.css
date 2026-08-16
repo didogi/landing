@@ -26,7 +26,7 @@ html {
 body {
   background-color: #05070c;
   color: rgb(var(--slate-50));
-  font-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  font-family: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

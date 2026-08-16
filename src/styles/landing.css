@@ -93,6 +93,10 @@
   animation: drift 18s ease-in-out infinite;
 }
 
+.font-display {
+  font-family: "El Messiri", "IBM Plex Sans Arabic", ui-sans-serif, sans-serif;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

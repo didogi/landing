@@ -1,10 +1,10 @@
-import { Atelier } from "./Atelier";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { Join } from "./Join";
 import { Marquee } from "./Marquee";
 import { Ritual } from "./Ritual";
+import { Sellers } from "./Sellers";
 import { Story } from "./Story";
 import { Trust } from "./Trust";
 import { World } from "./World";
@@ -19,7 +19,7 @@ export function Landing() {
         <Story />
         <World />
         <Ritual />
-        <Atelier />
+        <Sellers />
         <Trust />
         <Join />
       </main>

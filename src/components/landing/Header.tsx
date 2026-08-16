@@ -26,8 +26,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <a href="#top" className="text-[15px] font-semibold tracking-[0.28em] text-white">
-          DIDOGI
+        <a href="#top" className="font-display text-xl font-semibold text-white">
+          دیدوگی
         </a>
         <nav className="hidden items-center gap-8 lg:flex" aria-label="ناوبری">
           {NAV.map((item) => (
@@ -40,15 +40,15 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden items-center gap-6 lg:flex">
-          <a href="#join" className="text-[13px] text-white/70 hover:text-white">
-            ورود
+        <div className="hidden items-center gap-3 lg:flex">
+          <a href="#join" className="rounded-full px-4 py-2 text-[13px] text-white/80 hover:text-white">
+            ورود به اپ
           </a>
           <a
-            href="#atelier"
+            href="#sellers"
             className="rounded-full bg-primary px-5 py-2 text-[13px] font-semibold text-white shadow-cta transition-colors hover:bg-primary-hover"
           >
-            افتتاح آتلیه
+            ثبت‌نام فروشنده
           </a>
         </div>
         <button
@@ -69,20 +69,29 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-lg text-white"
+                className="font-display text-xl text-white"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </a>
             ))}
           </nav>
-          <a
-            href="#atelier"
-            className="mt-6 inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white"
-            onClick={() => setOpen(false)}
-          >
-            افتتاح آتلیه
-          </a>
+          <div className="mt-6 flex flex-col gap-2">
+            <a
+              href="#join"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 text-sm text-white"
+              onClick={() => setOpen(false)}
+            >
+              ورود به اپ
+            </a>
+            <a
+              href="#sellers"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white"
+              onClick={() => setOpen(false)}
+            >
+              ثبت‌نام فروشنده
+            </a>
+          </div>
         </div>
       )}
     </header>
