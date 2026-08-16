@@ -26,27 +26,27 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <a href="#top" className="font-display text-xl font-semibold text-white">
+        <a href="#top" className="font-display text-xl font-semibold text-white lg:text-2xl">
           دیدوجی
         </a>
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="ناوبری">
+        <nav className="hidden items-center gap-10 lg:flex" aria-label="ناوبری">
           {NAV.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-[13px] text-white/60 transition-colors hover:text-white"
+              className="text-base text-white/70 transition-colors hover:text-white"
             >
               {item.label}
             </a>
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#join" className="rounded-full px-4 py-2 text-[13px] text-white/80 hover:text-white">
+          <a href="#join" className="rounded-full px-4 py-2 text-base text-white/80 hover:text-white">
             ورود به اپ
           </a>
           <a
             href="#sellers"
-            className="rounded-full bg-primary px-5 py-2 text-[13px] font-semibold text-white shadow-cta transition-colors hover:bg-primary-hover"
+            className="rounded-full bg-primary px-5 py-2.5 text-base font-semibold text-white shadow-cta transition-colors hover:bg-primary-hover"
           >
             ثبت‌نام فروشنده
           </a>
