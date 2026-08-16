@@ -29,3 +29,5 @@ export function Ritual() {
     </section>
   );
 }
+
+export default Ritual;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CTA_BUYER, CTA_SELLER, HREF_BUYER, HREF_SELLER } from "./cta";
 import { NAV } from "./nav";
 
 export function Header() {
@@ -22,7 +23,9 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        solid || open ? "bg-[#05070c]/80 backdrop-blur-xl" : "bg-transparent"
+        solid || open
+          ? "bg-[#05070c]/90 md:bg-[#05070c]/80 md:backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
@@ -41,14 +44,14 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#join" className="rounded-full px-4 py-2 text-base text-white/80 hover:text-white">
-            ورود به اپ
+          <a href={HREF_BUYER} className="rounded-full px-4 py-2 text-base text-white/80 hover:text-white">
+            {CTA_BUYER}
           </a>
           <a
-            href="#sellers"
+            href={HREF_SELLER}
             className="rounded-full bg-primary px-5 py-2.5 text-base font-semibold text-white shadow-cta transition-colors hover:bg-primary-hover"
           >
-            ثبت‌نام فروشنده
+            {CTA_SELLER}
           </a>
         </div>
         <button
@@ -78,18 +81,18 @@ export function Header() {
           </nav>
           <div className="mt-6 flex flex-col gap-2">
             <a
-              href="#join"
+              href={HREF_BUYER}
               className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 text-sm text-white"
               onClick={() => setOpen(false)}
             >
-              ورود به اپ
+              {CTA_BUYER}
             </a>
             <a
-              href="#sellers"
+              href={HREF_SELLER}
               className="inline-flex h-11 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
-              ثبت‌نام فروشنده
+              {CTA_SELLER}
             </a>
           </div>
         </div>
@@ -97,3 +100,5 @@ export function Header() {
     </header>
   );
 }
+
+export default Header;

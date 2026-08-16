@@ -17,3 +17,5 @@ export function Trust() {
     </section>
   );
 }
+
+export default Trust;

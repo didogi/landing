@@ -1,32 +1,33 @@
+import { Picture, PORTRAIT_WIDTHS } from "./Picture";
 import { Reveal } from "./Reveal";
 
 const ITEMS = [
   {
     n: "۰۱",
+    name: "feat-1",
     title: "معرفی زنده محصول",
     text: "جنس را نشان بده، سؤال را همان لحظه جواب بده. اعتماد از دیدن ساخته می‌شود، نه از کپشن.",
-    img: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1100&h=1400&q=80",
     alt: "معرفی زنده محصول مقابل دوربین",
   },
   {
     n: "۰۲",
+    name: "feat-2",
     title: "ارتباط راحت با مشتری",
     text: "چت، فالو و اعلان؛ فروش از یک تراکنش خشک به گفت‌وگو تبدیل می‌شود.",
-    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1100&h=1400&q=80",
     alt: "تیم در حال گفت‌وگو و همکاری",
   },
   {
     n: "۰۳",
+    name: "feat-3",
     title: "خرید آنی و مزایده",
     text: "اگر کسی آماده است، همان لحظه می‌خرد. اگر هیجان جمع است، مزایده زنده قیمت را شفاف می‌سازد.",
-    img: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1100&h=1400&q=80",
     alt: "مشتری در حال خرید با رضایت",
   },
   {
     n: "۰۴",
+    name: "feat-4",
     title: "مارکت‌پلیس هوشمند",
     text: "فروشگاه‌ها در یک پلتفرم جمع‌اند. کشف، دنبال کردن و خرید در یک جریان — نه چند ابزار پراکنده.",
-    img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1100&h=1400&q=80",
     alt: "فضای مارکت و خرید کالا",
   },
 ];
@@ -46,13 +47,14 @@ export function World() {
             <article key={item.n} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
               <Reveal className={i % 2 === 1 ? "lg:order-2" : undefined}>
                 <div className="overflow-hidden rounded-[1.4rem]">
-                  <img
-                    src={item.img}
+                  <Picture
+                    name={item.name}
                     alt={item.alt}
+                    widths={PORTRAIT_WIDTHS}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     width={1100}
-                    height={1400}
-                    loading="lazy"
-                    className="aspect-[4/5] w-full object-cover transition-transform duration-[1.4s] ease-out hover:scale-105"
+                    height={1375}
+                    className="aspect-[4/5] h-auto w-full object-cover transition-transform duration-[1.4s] ease-out hover:scale-105"
                   />
                 </div>
               </Reveal>
@@ -69,3 +71,5 @@ export function World() {
     </section>
   );
 }
+
+export default World;

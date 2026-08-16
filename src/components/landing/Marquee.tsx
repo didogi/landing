@@ -1,10 +1,14 @@
+import { playClass, useInViewPlay } from "../../hooks/useInViewPlay";
+
 const WORDS = ["لایوکامرس", "معرفی زنده", "گفت‌وگو با مشتری", "مارکت‌پلیس", "خرید آنی", "مزایده زنده"];
 
 export function Marquee() {
   const row = [...WORDS, ...WORDS, ...WORDS, ...WORDS];
+  const { ref, playing } = useInViewPlay<HTMLDivElement>();
+
   return (
-    <div className="overflow-hidden border-y border-white/10 bg-[#05070c] py-5" aria-hidden="true">
-      <div className="lux-marquee flex w-max gap-10 whitespace-nowrap">
+    <div ref={ref} className="overflow-hidden border-y border-white/10 bg-[#05070c] py-5" aria-hidden="true">
+      <div className={`lux-marquee flex w-max gap-10 whitespace-nowrap ${playClass(playing)}`}>
         {row.map((word, i) => (
           <span key={`${word}-${i}`} className="flex items-center gap-10 font-display text-base text-white/40">
             {word}
@@ -15,3 +19,5 @@ export function Marquee() {
     </div>
   );
 }
+
+export default Marquee;

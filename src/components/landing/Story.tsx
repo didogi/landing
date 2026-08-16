@@ -20,3 +20,5 @@ export function Story() {
     </section>
   );
 }
+
+export default Story;

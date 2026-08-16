@@ -1,3 +1,4 @@
+import { CTA_SELLER, HREF_BUYER } from "./cta";
 import { Reveal } from "./Reveal";
 
 const LINES = [
@@ -20,10 +21,10 @@ export function Sellers() {
             دیدوجی برای فروشنده‌هایی است که از ویترین خشک خسته‌اند. محصول را زنده معرفی کن، با خریدار حرف بزن، و در پلتفرم لایوکامرس ما بفروش.
           </p>
           <a
-            href="#join"
+            href={HREF_BUYER}
             className="mt-8 inline-flex h-12 items-center rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-cta hover:bg-primary-hover"
           >
-            ثبت‌نام فروشنده
+            {CTA_SELLER}
           </a>
         </Reveal>
         <div className="space-y-6">
@@ -40,3 +41,5 @@ export function Sellers() {
     </section>
   );
 }
+
+export default Sellers;

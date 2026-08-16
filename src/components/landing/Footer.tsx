@@ -1,3 +1,4 @@
+import { CTA_BUYER, HREF_BUYER } from "./cta";
 import { NAV } from "./nav";
 
 export function Footer() {
@@ -16,8 +17,8 @@ export function Footer() {
               {item.label}
             </a>
           ))}
-          <a href="#join" className="text-sm text-white/45 hover:text-white">
-            ورود به اپ
+          <a href={HREF_BUYER} className="text-sm text-white/45 hover:text-white">
+            {CTA_BUYER}
           </a>
         </nav>
         <div className="space-y-2 text-sm text-white/40">
@@ -31,3 +32,5 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;
