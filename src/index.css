@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 @import "./styles/tokens.css";
+@import "./styles/components.css";
 
 *,
 *::before,
@@ -27,7 +28,7 @@ body {
 }
 
 ::selection {
-  background-color: rgb(var(--accent) / 0.28);
+  background-color: rgb(var(--primary) / 0.16);
   color: rgb(var(--foreground));
 }
 

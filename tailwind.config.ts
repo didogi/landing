@@ -52,6 +52,13 @@ export default {
           subtle: "rgb(var(--accent-subtle) / <alpha-value>)",
         },
 
+        highlight: {
+          DEFAULT: "rgb(var(--highlight) / <alpha-value>)",
+          foreground: "rgb(var(--highlight-foreground) / <alpha-value>)",
+          hover: "rgb(var(--highlight-hover) / <alpha-value>)",
+          muted: "rgb(var(--highlight-muted) / <alpha-value>)",
+        },
+
         muted: {
           DEFAULT: "rgb(var(--muted) / <alpha-value>)",
           foreground: "rgb(var(--muted-foreground) / <alpha-value>)",
@@ -113,42 +120,52 @@ export default {
 
         overlay: "rgb(var(--overlay) / <alpha-value>)",
 
-        navy: {
-          50: "rgb(var(--navy-50) / <alpha-value>)",
-          100: "rgb(var(--navy-100) / <alpha-value>)",
-          200: "rgb(var(--navy-200) / <alpha-value>)",
-          300: "rgb(var(--navy-300) / <alpha-value>)",
-          400: "rgb(var(--navy-400) / <alpha-value>)",
-          500: "rgb(var(--navy-500) / <alpha-value>)",
-          600: "rgb(var(--navy-600) / <alpha-value>)",
-          700: "rgb(var(--navy-700) / <alpha-value>)",
-          800: "rgb(var(--navy-800) / <alpha-value>)",
-          900: "rgb(var(--navy-900) / <alpha-value>)",
-          950: "rgb(var(--navy-950) / <alpha-value>)",
+        slate: {
+          50: "rgb(var(--slate-50) / <alpha-value>)",
+          100: "rgb(var(--slate-100) / <alpha-value>)",
+          200: "rgb(var(--slate-200) / <alpha-value>)",
+          300: "rgb(var(--slate-300) / <alpha-value>)",
+          400: "rgb(var(--slate-400) / <alpha-value>)",
+          500: "rgb(var(--slate-500) / <alpha-value>)",
+          600: "rgb(var(--slate-600) / <alpha-value>)",
+          700: "rgb(var(--slate-700) / <alpha-value>)",
+          800: "rgb(var(--slate-800) / <alpha-value>)",
+          900: "rgb(var(--slate-900) / <alpha-value>)",
+          950: "rgb(var(--slate-950) / <alpha-value>)",
         },
 
-        gold: {
-          50: "rgb(var(--gold-50) / <alpha-value>)",
-          100: "rgb(var(--gold-100) / <alpha-value>)",
-          200: "rgb(var(--gold-200) / <alpha-value>)",
-          300: "rgb(var(--gold-300) / <alpha-value>)",
-          400: "rgb(var(--gold-400) / <alpha-value>)",
-          500: "rgb(var(--gold-500) / <alpha-value>)",
-          600: "rgb(var(--gold-600) / <alpha-value>)",
-          700: "rgb(var(--gold-700) / <alpha-value>)",
-          800: "rgb(var(--gold-800) / <alpha-value>)",
-          900: "rgb(var(--gold-900) / <alpha-value>)",
+        blue: {
+          50: "rgb(var(--blue-50) / <alpha-value>)",
+          100: "rgb(var(--blue-100) / <alpha-value>)",
+          200: "rgb(var(--blue-200) / <alpha-value>)",
+          300: "rgb(var(--blue-300) / <alpha-value>)",
+          400: "rgb(var(--blue-400) / <alpha-value>)",
+          500: "rgb(var(--blue-500) / <alpha-value>)",
+          600: "rgb(var(--blue-600) / <alpha-value>)",
+          700: "rgb(var(--blue-700) / <alpha-value>)",
+          800: "rgb(var(--blue-800) / <alpha-value>)",
+          900: "rgb(var(--blue-900) / <alpha-value>)",
+          950: "rgb(var(--blue-950) / <alpha-value>)",
         },
 
-        stone: {
-          50: "rgb(var(--stone-50) / <alpha-value>)",
-          100: "rgb(var(--stone-100) / <alpha-value>)",
-          200: "rgb(var(--stone-200) / <alpha-value>)",
-          300: "rgb(var(--stone-300) / <alpha-value>)",
-          400: "rgb(var(--stone-400) / <alpha-value>)",
-          500: "rgb(var(--stone-500) / <alpha-value>)",
-          600: "rgb(var(--stone-600) / <alpha-value>)",
-          700: "rgb(var(--stone-700) / <alpha-value>)",
+        cyan: {
+          50: "rgb(var(--cyan-50) / <alpha-value>)",
+          100: "rgb(var(--cyan-100) / <alpha-value>)",
+          200: "rgb(var(--cyan-200) / <alpha-value>)",
+          400: "rgb(var(--cyan-400) / <alpha-value>)",
+          500: "rgb(var(--cyan-500) / <alpha-value>)",
+          600: "rgb(var(--cyan-600) / <alpha-value>)",
+          700: "rgb(var(--cyan-700) / <alpha-value>)",
+        },
+
+        violet: {
+          50: "rgb(var(--violet-50) / <alpha-value>)",
+          100: "rgb(var(--violet-100) / <alpha-value>)",
+          200: "rgb(var(--violet-200) / <alpha-value>)",
+          400: "rgb(var(--violet-400) / <alpha-value>)",
+          500: "rgb(var(--violet-500) / <alpha-value>)",
+          600: "rgb(var(--violet-600) / <alpha-value>)",
+          700: "rgb(var(--violet-700) / <alpha-value>)",
         },
       },
       borderRadius: {
@@ -157,10 +174,10 @@ export default {
         "2xl": "1.25rem",
       },
       boxShadow: {
-        card: "0 1px 2px rgb(10 25 47 / 0.04), 0 8px 24px rgb(10 25 47 / 0.06)",
+        card: "0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px rgb(15 23 42 / 0.05)",
         elevated:
-          "0 2px 4px rgb(10 25 47 / 0.04), 0 16px 40px rgb(10 25 47 / 0.08)",
-        gold: "0 1px 2px rgb(10 25 47 / 0.06), 0 8px 20px rgb(212 175 55 / 0.22)",
+          "0 2px 4px rgb(15 23 42 / 0.04), 0 16px 40px rgb(15 23 42 / 0.07)",
+        cta: "0 1px 2px rgb(15 23 42 / 0.06), 0 8px 20px rgb(37 99 235 / 0.22)",
       },
       ringOffsetColor: {
         DEFAULT: "rgb(var(--ring-offset) / <alpha-value>)",

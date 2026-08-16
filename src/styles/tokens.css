@@ -1,19 +1,21 @@
 /**
- * Didogi color system — quiet luxury
+ * Didogi color system — white-based innovative commerce
  *
- * Channel tokens are space-separated sRGB (R G B) so both of these work:
+ * Ratio: 70% white / soft gray · 20% slate structure · 8% blue CTA · 2% cyan/violet
+ *
+ * Channel tokens are space-separated sRGB so both of these work:
  *   background: rgb(var(--primary));
  *   background: rgb(var(--primary) / 0.08);
  *
- * Hex aliases (*-hex) are provided for tools that cannot use channel syntax.
+ * Contrast (WCAG):
+ *   foreground on background          ~16:1  AAA
+ *   muted-foreground on background    ~4.6:1 AA
+ *   primary-foreground on primary     ~4.5:1 AA  (use ≥16px / semibold on CTAs)
+ *   accent-foreground on accent       ~8:1   AAA (slate on cyan — never white on cyan)
+ *   highlight-foreground on highlight ~5:1   AA  (white on violet)
  *
- * Contrast (WCAG AA unless noted):
- *   primary-foreground on primary     ~18:1  AAA
- *   accent-foreground on accent       ~8.7:1 AAA  (navy on gold — never white on gold)
- *   accent on primary                 ~8.7:1 AAA  (gold text/icons on navy)
- *   foreground on background          ~17:1  AAA
- *   muted-foreground on background    ~5.5:1 AA
- *   Gold is NEVER used as body text on cream/white (fails AA).
+ * Cyan and violet are innovation accents only (badges, “New”, AI, specials).
+ * Never use them as page fills, body text, or primary CTAs.
  */
 
 :root {
@@ -21,214 +23,236 @@
    * 1. Primitive scales
    * ------------------------------------------------------------------------- */
 
-  /* Navy — trust, depth, institution. Brand core is 800 (#0A192F). */
-  --navy-50: 244 246 249; /* #F4F6F9 */
-  --navy-100: 232 236 242; /* #E8ECF2 */
-  --navy-200: 198 208 220; /* #C6D0DC */
-  --navy-300: 139 154 173; /* #8B9AAD */
-  --navy-400: 90 108 130; /* #5A6C82 */
-  --navy-500: 58 74 96; /* #3A4A60 */
-  --navy-600: 27 38 59; /* #1B263B  secondary brand */
-  --navy-700: 20 32 50; /* #142032 */
-  --navy-800: 10 25 47; /* #0A192F  primary brand */
-  --navy-900: 6 16 32; /* #061020 */
-  --navy-950: 3 8 18; /* #030812 */
+  /* Slate — structure, text, neutrals. Harmonizes with #0F172A / #64748B / #E2E8F0. */
+  --slate-50: 248 250 252; /* #F8FAFC  soft background */
+  --slate-100: 241 245 249; /* #F1F5F9 */
+  --slate-200: 226 232 240; /* #E2E8F0  border */
+  --slate-300: 203 213 225; /* #CBD5E1 */
+  --slate-400: 148 163 184; /* #94A3B8  placeholder / tertiary */
+  --slate-500: 100 116 139; /* #64748B  secondary text */
+  --slate-600: 71 85 105; /* #475569 */
+  --slate-700: 51 65 85; /* #334155 */
+  --slate-800: 30 41 59; /* #1E293B */
+  --slate-900: 15 23 42; /* #0F172A  primary text */
+  --slate-950: 2 6 23; /* #020617 */
 
-  /*
-   * Gold — antique metal, not candy yellow.
-   * 400 is the brand highlight (#D4AF37). Hover/active shift toward bronze
-   * so the metal feels heavier, not brighter.
-   */
-  --gold-50: 250 246 232; /* #FAF6E8  champagne wash */
-  --gold-100: 244 235 212; /* #F4EBD4 */
-  --gold-200: 232 217 168; /* #E8D9A8 */
-  --gold-300: 220 196 118; /* #DCC476  highlight edge */
-  --gold-400: 212 175 55; /* #D4AF37  brand gold */
-  --gold-500: 196 160 50; /* #C4A032  hover — richer, less neon */
-  --gold-600: 176 141 42; /* #B08D2A  active / pressed */
-  --gold-700: 140 111 31; /* #8C6F1F */
-  --gold-800: 107 84 24; /* #6B5418 */
-  --gold-900: 74 58 16; /* #4A3A10 */
+  /* Blue — reliable modern CTA. Core is 600 (#2563EB). */
+  --blue-50: 239 246 255; /* #EFF6FF */
+  --blue-100: 219 234 254; /* #DBEAFE */
+  --blue-200: 191 219 254; /* #BFDBFE */
+  --blue-300: 147 197 253; /* #93C5FD */
+  --blue-400: 96 165 250; /* #60A5FA */
+  --blue-500: 59 130 246; /* #3B82F6 */
+  --blue-600: 37 99 235; /* #2563EB  primary CTA */
+  --blue-700: 29 78 216; /* #1D4ED8  hover */
+  --blue-800: 30 64 175; /* #1E40AF  active */
+  --blue-900: 30 58 138; /* #1E3A8A */
+  --blue-950: 23 37 84; /* #172554 */
 
-  /*
-   * Stone — warm paper & architecture neutrals.
-   * Pair with navy; avoid cool blue-gray and pink beige.
-   */
-  --stone-50: 250 247 240; /* #FAF7F0  page cream */
-  --stone-100: 248 246 242; /* #F8F6F2  muted wash */
-  --stone-200: 243 239 232; /* #F3EFE8  subtle fill */
-  --stone-300: 232 226 216; /* #E8E2D8  border */
-  --stone-400: 212 204 190; /* #D4CCBE */
-  --stone-500: 168 160 146; /* #A8A092 */
-  --stone-600: 122 116 106; /* #7A746A */
-  --stone-700: 92 87 80; /* #5C5750 */
+  /* Cyan — innovation accent (2%). Never body text, never primary button fill. */
+  --cyan-50: 236 254 255; /* #ECFEFF */
+  --cyan-100: 207 250 254; /* #CFFAFE */
+  --cyan-200: 165 243 252; /* #A5F3FC */
+  --cyan-400: 34 211 238; /* #22D3EE */
+  --cyan-500: 6 182 212; /* #06B6D4 */
+  --cyan-600: 8 145 178; /* #0891B2 */
+  --cyan-700: 14 116 144; /* #0E7490 */
 
-  /* Ink slate — navy-tinted gray for body/secondary text (not brown, not blue). */
-  --ink-400: 139 146 156; /* #8B929C  tertiary */
-  --ink-500: 92 100 112; /* #5C6470  muted copy */
-  --ink-600: 71 80 94; /* #47505E */
+  /* Violet — special highlight (2%). Badges, offers, rare emphasis. */
+  --violet-50: 245 243 255; /* #F5F3FF */
+  --violet-100: 237 233 254; /* #EDE9FE */
+  --violet-200: 221 214 254; /* #DDD6FE */
+  --violet-400: 167 139 250; /* #A78BFA */
+  --violet-500: 139 92 246; /* #8B5CF6 */
+  --violet-600: 124 58 237; /* #7C3AED */
+  --violet-700: 109 40 217; /* #6D28D9 */
 
   /* -------------------------------------------------------------------------
    * 2. Semantic tokens (shadcn-style)
    * ------------------------------------------------------------------------- */
 
-  /* Canvas */
-  --background: var(--stone-50); /* #FAF7F0  page */
-  --foreground: var(--navy-800); /* #0A192F  primary ink */
+  /* Canvas — 70% white / soft gray */
+  --background: 255 255 255; /* #FFFFFF  page */
+  --foreground: var(--slate-900); /* #0F172A  primary ink */
 
-  --surface: 255 255 255; /* #FFFFFF  raised panels */
-  --surface-foreground: var(--navy-800);
+  --surface: var(--slate-50); /* #F8FAFC  soft bands, zebra rows */
+  --surface-foreground: var(--slate-900);
 
   --card: 255 255 255;
-  --card-foreground: var(--navy-800);
+  --card-foreground: var(--slate-900);
 
   --popover: 255 255 255;
-  --popover-foreground: var(--navy-800);
+  --popover-foreground: var(--slate-900);
 
-  /* Brand */
-  --primary: var(--navy-800); /* #0A192F */
+  /* Brand / CTA — 8% blue */
+  --primary: var(--blue-600); /* #2563EB  Add to Cart, Buy Now, Checkout */
   --primary-foreground: 255 255 255;
-  --primary-hover: var(--navy-700);
-  --primary-active: var(--navy-900);
-  --primary-muted: var(--navy-50);
+  --primary-hover: var(--blue-700); /* #1D4ED8 */
+  --primary-active: var(--blue-800);
+  --primary-muted: var(--blue-50);
+  --primary-muted-foreground: var(--blue-700);
 
-  --secondary: var(--navy-600); /* #1B263B */
-  --secondary-foreground: 255 255 255;
-  --secondary-hover: var(--navy-700);
-  --secondary-active: var(--navy-800);
+  /* Secondary actions — quiet slate, not a second brand color */
+  --secondary: var(--slate-100);
+  --secondary-foreground: var(--slate-900);
+  --secondary-hover: var(--slate-200);
+  --secondary-active: var(--slate-300);
 
-  /* Gold CTA / luxury accent — foreground is navy, never white */
-  --accent: var(--gold-400); /* #D4AF37 */
-  --accent-foreground: var(--navy-800);
-  --accent-hover: var(--gold-500);
-  --accent-active: var(--gold-600);
-  --accent-muted: var(--gold-50);
-  --accent-subtle: var(--gold-100);
+  /* Innovation accent — cyan */
+  --accent: var(--cyan-500); /* #06B6D4 */
+  --accent-foreground: var(--slate-900); /* never white on cyan */
+  --accent-hover: var(--cyan-600);
+  --accent-active: var(--cyan-700);
+  --accent-muted: var(--cyan-50);
+  --accent-subtle: var(--cyan-100);
 
-  /* Quiet fills */
-  --muted: var(--stone-100);
-  --muted-foreground: var(--ink-500);
+  /* Special highlight — violet */
+  --highlight: var(--violet-600); /* #7C3AED */
+  --highlight-foreground: 255 255 255;
+  --highlight-hover: var(--violet-700);
+  --highlight-muted: var(--violet-50);
+  --highlight-muted-foreground: var(--violet-700);
 
-  --subtle: var(--stone-200);
-  --subtle-foreground: var(--ink-600);
+  /* Quiet fills & copy */
+  --muted: var(--slate-50);
+  --muted-foreground: var(--slate-500); /* #64748B */
+
+  --subtle: var(--slate-100);
+  --subtle-foreground: var(--slate-600);
 
   /* Lines & controls */
-  --border: var(--stone-300);
-  --border-strong: var(--navy-200);
-  --input: var(--stone-300);
+  --border: var(--slate-200); /* #E2E8F0 */
+  --border-strong: var(--slate-300);
+  --input: var(--slate-200);
   --input-background: 255 255 255;
-  --ring: var(--gold-400); /* focus halo — gold on navy UI feels editorial */
-  --ring-offset: var(--background);
+  --ring: var(--blue-600);
+  --ring-offset: 255 255 255;
 
-  /* Inverse surfaces (headers, hero, footer, dark nav) */
-  --inverse: var(--navy-800);
+  /* Inverse — footer / dark product media only (still the 20% structure budget) */
+  --inverse: var(--slate-900);
   --inverse-foreground: 255 255 255;
-  --inverse-muted: var(--navy-300);
+  --inverse-muted: var(--slate-400);
   --inverse-border: 255 255 255; /* use at 8–12% opacity */
 
-  /* Feedback — restrained, not candy. Gold is reserved for brand, not warnings. */
-  --destructive: 155 44 44; /* #9B2C2C */
+  /* Feedback — professional, not candy. Distinct from cyan/violet brand accents. */
+  --destructive: 220 38 38; /* #DC2626 */
   --destructive-foreground: 255 255 255;
-  --destructive-hover: 127 29 29; /* #7F1D1D */
+  --destructive-hover: 185 28 28; /* #B91C1C */
   --destructive-muted: 254 242 242; /* #FEF2F2 */
+  --destructive-muted-foreground: 185 28 28;
 
-  --success: 45 106 79; /* #2D6A4F */
+  --success: 5 150 105; /* #059669 */
   --success-foreground: 255 255 255;
-  --success-muted: 236 247 241; /* #ECF7F1 */
+  --success-muted: 236 253 245; /* #ECFDF5 */
+  --success-muted-foreground: 4 120 87; /* #047857 */
 
-  --warning: 180 106 24; /* #B46A18  amber, distinct from gold */
+  --warning: 217 119 6; /* #D97706 */
   --warning-foreground: 255 255 255;
-  --warning-muted: 252 244 232; /* #FCF4E8 */
+  --warning-muted: 255 251 235; /* #FFFBEB */
+  --warning-muted-foreground: 180 83 9; /* #B45309 */
 
-  --info: 61 90 128; /* #3D5A80  steel, from the navy family */
+  --info: var(--blue-600);
   --info-foreground: 255 255 255;
-  --info-muted: 237 242 247; /* #EDF2F7 */
+  --info-muted: var(--blue-50);
+  --info-muted-foreground: var(--blue-700);
 
-  /* Disabled — intentionally low contrast */
-  --disabled: var(--stone-200);
-  --disabled-foreground: 168 172 180; /* #A8ACB4 */
+  --disabled: var(--slate-100);
+  --disabled-foreground: var(--slate-400);
 
-  /* Overlay */
-  --overlay: 10 25 47; /* navy scrim, typically / 0.48–0.64 */
+  --overlay: var(--slate-900); /* scrim, typically / 0.40–0.56 */
 
   /* -------------------------------------------------------------------------
-   * 3. Hex aliases (non-alpha contexts, design tools, SVG fill)
+   * 3. Hex aliases (design tools, SVG fill, non-alpha contexts)
    * ------------------------------------------------------------------------- */
-  --background-hex: #faf7f0;
-  --foreground-hex: #0a192f;
-  --surface-hex: #ffffff;
+  --background-hex: #ffffff;
+  --foreground-hex: #0f172a;
+  --surface-hex: #f8fafc;
   --card-hex: #ffffff;
-  --primary-hex: #0a192f;
-  --primary-hover-hex: #142032;
-  --secondary-hex: #1b263b;
-  --accent-hex: #d4af37;
-  --accent-hover-hex: #c4a032;
-  --accent-foreground-hex: #0a192f;
-  --muted-hex: #f8f6f2;
-  --muted-foreground-hex: #5c6470;
-  --border-hex: #e8e2d8;
-  --inverse-hex: #0a192f;
+  --primary-hex: #2563eb;
+  --primary-hover-hex: #1d4ed8;
+  --secondary-hex: #f1f5f9;
+  --accent-hex: #06b6d4;
+  --highlight-hex: #7c3aed;
+  --muted-hex: #f8fafc;
+  --muted-foreground-hex: #64748b;
+  --border-hex: #e2e8f0;
+  --inverse-hex: #0f172a;
 }
 
-/* Optional inverse / evening theme — same semantics, navy canvas */
+/* Optional dark theme — same semantics, slate canvas, blue remains the CTA */
 [data-theme="dark"] {
-  --background: var(--navy-900);
-  --foreground: 244 246 249;
+  color-scheme: dark;
 
-  --surface: var(--navy-800);
-  --surface-foreground: 244 246 249;
+  --background: var(--slate-950);
+  --foreground: var(--slate-50);
 
-  --card: var(--navy-800);
-  --card-foreground: 244 246 249;
+  --surface: var(--slate-900);
+  --surface-foreground: var(--slate-50);
 
-  --popover: var(--navy-700);
-  --popover-foreground: 244 246 249;
+  --card: var(--slate-900);
+  --card-foreground: var(--slate-50);
 
-  --primary: var(--gold-400);
-  --primary-foreground: var(--navy-800);
-  --primary-hover: var(--gold-500);
-  --primary-active: var(--gold-600);
-  --primary-muted: var(--navy-700);
+  --popover: var(--slate-800);
+  --popover-foreground: var(--slate-50);
 
-  --secondary: var(--navy-600);
-  --secondary-foreground: 244 246 249;
-  --secondary-hover: var(--navy-500);
-  --secondary-active: var(--navy-400);
+  --primary: var(--blue-500);
+  --primary-foreground: var(--slate-950);
+  --primary-hover: var(--blue-400);
+  --primary-active: var(--blue-300);
+  --primary-muted: var(--blue-950);
+  --primary-muted-foreground: var(--blue-300);
 
-  --accent: var(--gold-400);
-  --accent-foreground: var(--navy-800);
-  --accent-hover: var(--gold-300);
-  --accent-active: var(--gold-500);
-  --accent-muted: var(--navy-700);
+  --secondary: var(--slate-800);
+  --secondary-foreground: var(--slate-50);
+  --secondary-hover: var(--slate-700);
+  --secondary-active: var(--slate-600);
 
-  --muted: var(--navy-700);
-  --muted-foreground: var(--navy-300);
+  --accent: var(--cyan-400);
+  --accent-foreground: var(--slate-950);
+  --accent-hover: var(--cyan-500);
+  --accent-active: var(--cyan-600);
+  --accent-muted: 8 47 73; /* deep cyan wash */
+  --accent-subtle: 21 94 117;
 
-  --subtle: var(--navy-800);
-  --subtle-foreground: var(--navy-200);
+  --highlight: var(--violet-500);
+  --highlight-foreground: 255 255 255;
+  --highlight-hover: var(--violet-400);
+  --highlight-muted: 46 16 101;
+  --highlight-muted-foreground: 196 181 253;
 
-  --border: 27 38 59;
-  --border-strong: var(--navy-500);
-  --input: var(--navy-500);
-  --input-background: var(--navy-900);
-  --ring: var(--gold-400);
-  --ring-offset: var(--navy-900);
+  --muted: var(--slate-900);
+  --muted-foreground: var(--slate-400);
+
+  --subtle: var(--slate-800);
+  --subtle-foreground: var(--slate-300);
+
+  --border: var(--slate-800);
+  --border-strong: var(--slate-700);
+  --input: var(--slate-700);
+  --input-background: var(--slate-950);
+  --ring: var(--blue-400);
+  --ring-offset: var(--slate-950);
 
   --inverse: 255 255 255;
-  --inverse-foreground: var(--navy-800);
-  --inverse-muted: var(--navy-400);
+  --inverse-foreground: var(--slate-900);
+  --inverse-muted: var(--slate-500);
   --inverse-border: 255 255 255;
 
-  --disabled: var(--navy-700);
-  --disabled-foreground: var(--navy-400);
+  --disabled: var(--slate-800);
+  --disabled-foreground: var(--slate-600);
 
-  --background-hex: #061020;
-  --foreground-hex: #f4f6f9;
-  --surface-hex: #0a192f;
-  --card-hex: #0a192f;
-  --primary-hex: #d4af37;
-  --muted-hex: #142032;
-  --muted-foreground-hex: #8b9aad;
-  --border-hex: #1b263b;
+  --destructive-muted: 69 10 10;
+  --success-muted: 2 44 34;
+  --warning-muted: 69 26 3;
+  --info-muted: var(--blue-950);
+
+  --background-hex: #020617;
+  --foreground-hex: #f8fafc;
+  --surface-hex: #0f172a;
+  --card-hex: #0f172a;
+  --primary-hex: #3b82f6;
+  --muted-hex: #0f172a;
+  --muted-foreground-hex: #94a3b8;
+  --border-hex: #1e293b;
   --inverse-hex: #ffffff;
 }

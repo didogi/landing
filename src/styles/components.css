@@ -1,0 +1,160 @@
+/**
+ * Usage guide — map tokens to UI without guessing.
+ *
+ * Page
+ *   bg-background          #FFFFFF  default canvas
+ *   bg-surface / bg-muted  #F8FAFC  alternating bands, table rows, empty states
+ *
+ * Text
+ *   text-foreground        #0F172A  titles, prices, body
+ *   text-muted-foreground  #64748B  captions, meta, nav idle
+ *   text-slate-400         placeholders, legal microcopy
+ *
+ * CTA (8%) — Add to Cart, Buy Now, Checkout
+ *   .btn-primary
+ *
+ * Secondary / ghost
+ *   .btn-secondary  quiet fill
+ *   .btn-outline    bordered
+ *   .btn-ghost      text-only
+ *
+ * Cards
+ *   bg-card border-border shadow-card
+ *
+ * Nav / header
+ *   bg-background border-b border-border  (stay white — do not default to inverse)
+ *
+ * Footer
+ *   bg-inverse text-inverse-foreground  (structure budget, not a second brand)
+ *
+ * Inputs
+ *   bg-input-background border-input focus:ring-2 ring-ring
+ *
+ * Accents (2%)
+ *   .badge-new      cyan  — New, AI-powered, live
+ *   .badge-special  violet — offer, limited, featured
+ *
+ * Neutrals: only slate-50…950. Do not introduce warm stone or extra gray families.
+ */
+
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgb(var(--primary));
+    color: rgb(var(--primary-foreground));
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 8px 20px rgb(37 99 235 / 0.18);
+  }
+
+  .btn-primary:hover {
+    background: rgb(var(--primary-hover));
+  }
+
+  .btn-primary:active {
+    background: rgb(var(--primary-active));
+  }
+
+  .btn-primary:disabled {
+    cursor: not-allowed;
+    background: rgb(var(--disabled));
+    color: rgb(var(--disabled-foreground));
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgb(var(--secondary));
+    color: rgb(var(--secondary-foreground));
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .btn-secondary:hover {
+    background: rgb(var(--secondary-hover));
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(var(--border));
+    background: rgb(var(--card));
+    color: rgb(var(--foreground));
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .btn-outline:hover {
+    background: rgb(var(--muted));
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: transparent;
+    color: rgb(var(--muted-foreground));
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .btn-ghost:hover {
+    background: rgb(var(--muted));
+    color: rgb(var(--foreground));
+  }
+
+  .badge-new {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background: rgb(var(--accent-muted));
+    color: rgb(var(--accent-hover));
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge-special {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background: rgb(var(--highlight-muted));
+    color: rgb(var(--highlight));
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(var(--input));
+    background: rgb(var(--input-background));
+    color: rgb(var(--foreground));
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .field::placeholder {
+    color: rgb(var(--slate-400));
+  }
+
+  .field:focus {
+    outline: 2px solid rgb(var(--ring));
+    outline-offset: 2px;
+    border-color: rgb(var(--primary));
+  }
+}
