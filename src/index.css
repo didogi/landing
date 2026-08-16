@@ -2,6 +2,7 @@
 @config "../tailwind.config.ts";
 @import "./styles/tokens.css";
 @import "./styles/components.css";
+@import "./styles/landing.css";
 
 *,
 *::before,
@@ -17,22 +18,25 @@ body,
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background-color: rgb(var(--background));
-  color: rgb(var(--foreground));
+  background-color: #05070c;
+  color: rgb(var(--slate-50));
+  font-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: rgb(var(--primary) / 0.16);
-  color: rgb(var(--foreground));
+  background-color: rgb(var(--primary) / 0.35);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid rgb(var(--ring));
-  outline-offset: 2px;
+  outline: 2px solid rgb(var(--blue-400));
+  outline-offset: 3px;
 }

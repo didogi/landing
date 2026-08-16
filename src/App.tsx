@@ -1,5 +1,7 @@
+import { Landing } from "./components/landing/Landing";
+
 function App() {
-  return <div className="min-h-screen bg-background text-foreground" />
+  return <Landing />;
 }
 
-export default App
+export default App;
