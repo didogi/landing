@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 
 function IconWrap({ children }: { children: ReactNode }) {
   return (
-    <span className="flex size-16 items-center justify-center rounded-full border border-white/15 text-white transition-colors duration-300 group-hover:border-white/50 group-hover:bg-white/8 sm:size-[4.5rem]">
+    <span className="flex size-16 items-center justify-center rounded-full border border-white/15 text-white transition-colors duration-300 group-hover:border-primary group-hover:text-primary sm:size-[4.5rem]">
       {children}
     </span>
   );
@@ -59,7 +59,7 @@ export function Contact() {
     <section id="contact" className="below-fold bg-[#05070c] px-5 pb-28 pt-16 sm:px-8 sm:pt-20 lg:pb-24">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.contact.label}</p>
+          <p className="section-label">{copy.contact.label}</p>
           <h2 className="font-display mt-4 text-3xl font-semibold text-white sm:text-4xl">{copy.contact.h2}</h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-8 text-white/70">{copy.contact.intro}</p>
         </Reveal>
@@ -78,13 +78,13 @@ export function Contact() {
                 <IconWrap>
                   <Icon />
                 </IconWrap>
-                <span className="text-sm text-white/70 transition-colors group-hover:text-white">{channel.name}</span>
+                <span className="text-sm text-white/70 transition-colors group-hover:text-primary">{channel.name}</span>
               </a>
             );
           })}
         </div>
         <p className="mt-12 text-sm text-white/70">
-          <a href={`mailto:${site.email}`} className="hover:text-white">
+          <a href={`mailto:${site.email}`} className="hover:text-primary">
             {site.email}
           </a>
         </p>

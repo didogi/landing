@@ -25,12 +25,12 @@ export function Join() {
               <CtaLink
                 audience="buyer"
                 location="join"
-                className="inline-flex h-12 min-h-11 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-cta hover:bg-primary-hover"
+                className="btn-primary h-12 min-h-11 rounded-full px-7"
               />
               <CtaLink
                 audience="seller"
                 location="join"
-                className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border border-white/25 px-7 text-sm text-white hover:border-white/60"
+                className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border border-white/25 px-7 text-sm text-white hover:border-primary"
               />
             </div>
           </div>

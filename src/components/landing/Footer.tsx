@@ -12,23 +12,23 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label="فوتر">
           {copy.nav.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-white/70 hover:text-white">
+            <a key={item.href} href={item.href} className="text-sm text-white/70 hover:text-primary">
               {item.label}
             </a>
           ))}
-          <a href="#who" className="text-sm text-white/70 hover:text-white">
+          <a href="#who" className="text-sm text-white/70 hover:text-primary">
             چه کسانی می‌فروشند
           </a>
-          <a href="#faq" className="text-sm text-white/70 hover:text-white">
+          <a href="#faq" className="text-sm text-white/70 hover:text-primary">
             پرسش‌ها
           </a>
-          <a href="#contact" className="text-sm text-white/70 hover:text-white">
+          <a href="#contact" className="text-sm text-white/70 hover:text-primary">
             ارتباط با ما
           </a>
-          <CtaLink audience="buyer" location="footer" className="text-sm text-white/70 hover:text-white" />
+          <CtaLink audience="buyer" location="footer" className="text-sm text-white/70 hover:text-primary" />
         </nav>
         <div className="space-y-2 text-sm text-white/70">
-          <a href={`mailto:${site.email}`} className="block hover:text-white">
+          <a href={`mailto:${site.email}`} className="block hover:text-primary">
             {site.email}
           </a>
           <p>{site.city}</p>

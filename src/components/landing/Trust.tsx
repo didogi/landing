@@ -6,7 +6,7 @@ export function Trust() {
     <section id="trust" className="below-fold bg-[#05070c] px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.trust.label}</p>
+          <p className="section-label">{copy.trust.label}</p>
           <h2 className="font-display mt-4 text-3xl font-semibold text-white sm:text-4xl">{copy.trust.h2}</h2>
           <p className="mt-4 max-w-2xl text-sm leading-8 text-white/70">{copy.trust.intro}</p>
         </Reveal>

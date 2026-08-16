@@ -38,7 +38,7 @@ export function AudienceHow() {
     <section id="how" className="below-fold bg-[#05070c] px-5 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.how.label}</p>
+          <p className="section-label">{copy.how.label}</p>
           <h2 className="font-display mt-4 text-3xl font-semibold text-white sm:text-4xl">{copy.how.h2}</h2>
         </Reveal>
         <div
@@ -62,7 +62,7 @@ export function AudienceHow() {
               aria-controls={`${tab.id}-panel`}
               tabIndex={audience === tab.value ? 0 : -1}
               className={`min-h-11 rounded-full px-5 text-sm ${
-                audience === tab.value ? "bg-white text-slate-950" : "text-white/70 hover:text-white"
+                audience === tab.value ? "bg-primary text-primary-foreground" : "text-white/70 hover:text-white"
               }`}
               onClick={() => select(tab.value)}
             >

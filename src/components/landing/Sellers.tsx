@@ -7,7 +7,7 @@ export function Sellers() {
     <section id="sellers" className="below-fold relative overflow-hidden bg-[#05070c] px-5 py-24 sm:px-8">
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-2">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.sellers.label}</p>
+          <p className="section-label">{copy.sellers.label}</p>
           <h2 className="font-display mt-4 text-3xl font-semibold leading-snug text-white sm:text-4xl">
             {copy.sellers.h2}
           </h2>
@@ -15,7 +15,7 @@ export function Sellers() {
           <CtaLink
             audience="seller"
             location="sellers"
-            className="mt-8 inline-flex h-12 min-h-11 items-center rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-cta hover:bg-primary-hover"
+            className="btn-primary mt-8 h-12 min-h-11 rounded-full px-7"
           />
           <p className="mt-10 text-xs text-white/55">{copy.sellers.casesLabel}</p>
           <p className="mt-1 text-xs text-white/45">{copy.sellers.casesNote}</p>

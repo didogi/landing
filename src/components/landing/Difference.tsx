@@ -6,7 +6,7 @@ export function Difference() {
     <section id="difference" className="below-fold bg-[#05070c] px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.difference.label}</p>
+          <p className="section-label">{copy.difference.label}</p>
           <h2 className="font-display mt-4 max-w-xl text-3xl font-semibold text-white sm:text-4xl">
             {copy.difference.h2}
           </h2>
@@ -16,7 +16,7 @@ export function Difference() {
             <Reveal key={item.to}>
               <article className="grid gap-3 py-8 md:grid-cols-2 md:gap-12">
                 <p className="text-sm leading-8 text-white/55">{item.from}</p>
-                <p className="text-sm leading-8 text-white/80">{item.to}</p>
+                <p className="text-sm leading-8 text-white">{item.to}</p>
               </article>
             </Reveal>
           ))}

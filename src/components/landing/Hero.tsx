@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section id="top" ref={ref} className="crit-hero relative min-h-[100svh] overflow-hidden">
-      <div className={`pointer-events-none absolute -left-24 top-10 size-[22rem] rounded-full bg-blue-600/20 blur-3xl lux-glow ${on}`} />
+      <div className={`pointer-events-none absolute -left-24 top-10 size-[22rem] rounded-full bg-primary/25 blur-3xl lux-glow ${on}`} />
 
       <div className="absolute inset-0">
         <div className="grid h-full grid-cols-1 md:grid-cols-3 md:gap-2">
@@ -39,33 +39,33 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 sm:pb-24">
-        <p className="text-[12px] text-white/55">{copy.hero.kicker}</p>
+        <p className="section-label text-[12px]">{copy.hero.kicker}</p>
         <h1 className="lux-rise font-display mt-6 max-w-3xl text-[2.5rem] font-semibold leading-[1.25] text-white sm:text-6xl lg:text-7xl">
           {copy.hero.h1a}
           <span className="mt-2 block font-medium text-white/80">{copy.hero.h1b}</span>
         </h1>
         <p className="lux-rise mt-6 max-w-xl text-sm leading-8 text-white/70 sm:text-base" style={{ animationDelay: "120ms" }}>
           دیدوجی یک مارکت‌پلیس لایوکامرس است؛ جایی که فروشنده محصول را{" "}
-          <strong className="font-semibold text-white">زنده معرفی</strong> می‌کند، مشتری همان لحظه سؤال می‌پرسد و{" "}
-          <strong className="font-semibold text-white">خرید یا مزایده</strong> در همان فضا انجام می‌شود.
+          <strong className="font-semibold text-accent">زنده معرفی</strong> می‌کند، مشتری همان لحظه سؤال می‌پرسد و{" "}
+          <strong className="font-semibold text-highlight">خرید یا مزایده</strong> در همان فضا انجام می‌شود.
         </p>
         <div className="lux-rise mt-10 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "180ms" }}>
           <CtaLink
             audience="buyer"
             location="hero"
-            className="inline-flex h-12 min-h-11 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-cta hover:bg-primary-hover"
+            className="btn-primary h-12 min-h-11 rounded-full px-7"
           />
           <CtaLink
             audience="seller"
             location="hero"
-            className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border border-white/20 px-7 text-sm text-white hover:border-white/50"
+            className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border border-white/20 px-7 text-sm text-white hover:border-primary"
           />
         </div>
         <ul className="mt-8 flex flex-wrap gap-2" aria-label="مزیت‌های اصلی">
-          {copy.hero.chips.map((chip) => (
+          {copy.hero.chips.map((chip, i) => (
             <li
               key={chip}
-              className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/70"
+              className={i === 0 ? "badge-new" : i === 2 ? "badge-special" : "rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/70"}
             >
               {chip}
             </li>

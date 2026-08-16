@@ -7,7 +7,7 @@ export function WhoSells() {
     <section id="who" className="below-fold bg-[#05070c] px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.who.label}</p>
+          <p className="section-label">{copy.who.label}</p>
           <h2 className="font-display mt-4 max-w-xl text-3xl font-semibold text-white sm:text-4xl">
             {copy.who.h2}
           </h2>
@@ -29,7 +29,7 @@ export function WhoSells() {
           <CtaLink
             audience="seller"
             location="who"
-            className="mt-10 inline-flex h-12 min-h-11 items-center rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-cta hover:bg-primary-hover"
+            className="btn-primary mt-10 h-12 min-h-11 rounded-full px-7"
           />
         </Reveal>
       </div>

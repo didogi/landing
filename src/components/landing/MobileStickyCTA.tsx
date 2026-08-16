@@ -24,7 +24,7 @@ export function MobileStickyCTA() {
         <CtaLink
           audience="buyer"
           location="mobile_sticky"
-          className="inline-flex h-11 min-h-11 flex-1 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white"
+          className="btn-primary h-11 min-h-11 flex-1 rounded-full"
         />
         <CtaLink
           audience="seller"

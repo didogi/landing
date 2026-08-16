@@ -97,6 +97,12 @@ body {
   font-family: "El Messiri", "IBM Plex Sans Arabic", ui-sans-serif, sans-serif;
 }
 
+.section-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgb(var(--primary));
+}
+
 summary::-webkit-details-marker {
   display: none;
 }

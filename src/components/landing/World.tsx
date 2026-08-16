@@ -38,7 +38,7 @@ export function World() {
     <section id="world" className="below-fold bg-[#05070c] pb-8">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.world.label}</p>
+          <p className="section-label">{copy.world.label}</p>
           <h2 className="font-display mt-4 max-w-lg text-3xl font-semibold text-white sm:text-4xl">
             {copy.world.h2}
           </h2>
@@ -60,7 +60,7 @@ export function World() {
                 </div>
               </Reveal>
               <Reveal delay={80}>
-                <p className="text-sm text-white/55">{item.n}</p>
+                <p className="text-sm font-semibold text-primary">{item.n}</p>
                 <h3 className="font-display mt-4 text-2xl font-semibold text-white sm:text-3xl">{item.title}</h3>
                 <p className="mt-6 max-w-sm text-sm leading-8 text-white/70">{item.text}</p>
               </Reveal>

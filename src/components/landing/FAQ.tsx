@@ -11,7 +11,7 @@ export function FAQ() {
     <section id="faq" className="below-fold bg-[#05070c] px-5 py-20 sm:px-8">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <p className="text-[13px] text-blue-300/90">{copy.faq.label}</p>
+          <p className="section-label">{copy.faq.label}</p>
           <h2 className="font-display mt-4 text-3xl font-semibold text-white sm:text-4xl">{copy.faq.h2}</h2>
         </Reveal>
         <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
@@ -33,7 +33,7 @@ export function FAQ() {
                     }}
                   >
                     {item.q}
-                    <span className={`inline-block text-white/50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`} aria-hidden>
+                    <span className={`inline-block transition-transform duration-300 ${isOpen ? "rotate-45 text-primary" : "text-white/50"}`} aria-hidden>
                       +
                     </span>
                   </button>

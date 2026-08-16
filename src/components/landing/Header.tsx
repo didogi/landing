@@ -77,7 +77,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-base text-white/70 transition-colors hover:text-white"
+              className="text-base text-white/70 transition-colors hover:text-primary"
             >
               {item.label}
             </a>
@@ -88,7 +88,7 @@ export function Header() {
           <CtaLink
             audience="seller"
             location="header"
-            className="min-h-11 rounded-full bg-primary px-5 py-2.5 text-base font-semibold text-white shadow-cta hover:bg-primary-hover"
+            className="btn-primary min-h-11 rounded-full px-5 py-2.5 text-base"
           />
         </div>
         <button
@@ -129,13 +129,13 @@ export function Header() {
             <CtaLink
               audience="buyer"
               location="header"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 text-sm text-white"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 text-sm text-white hover:border-primary"
               onClick={() => setMenuOpen(false)}
             />
             <CtaLink
               audience="seller"
               location="header"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white"
+              className="btn-primary h-11 w-full rounded-full"
               onClick={() => setMenuOpen(false)}
             />
           </div>
