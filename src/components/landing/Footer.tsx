@@ -16,6 +16,9 @@ export function Footer() {
               {item.label}
             </a>
           ))}
+          <a href="#who" className="text-sm text-white/70 hover:text-white">
+            چه کسانی می‌فروشند
+          </a>
           <a href="#faq" className="text-sm text-white/70 hover:text-white">
             پرسش‌ها
           </a>

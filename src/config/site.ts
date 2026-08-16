@@ -3,6 +3,7 @@ export type CtaAudience = "buyer" | "seller";
 export type CtaLocation =
   | "header"
   | "hero"
+  | "who"
   | "sellers"
   | "join"
   | "footer"

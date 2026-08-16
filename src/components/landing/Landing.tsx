@@ -15,6 +15,7 @@ import { ProductProof } from "./ProductProof";
 import { Sellers } from "./Sellers";
 import { Story } from "./Story";
 import { Trust } from "./Trust";
+import { WhoSells } from "./WhoSells";
 import { World } from "./World";
 
 export function Landing() {
@@ -41,6 +42,7 @@ export function Landing() {
           <World />
           <ProductProof />
           <AudienceHow />
+          <WhoSells />
           <Sellers />
           <Trust />
           <FAQ />
