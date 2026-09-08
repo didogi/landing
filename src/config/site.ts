@@ -10,28 +10,32 @@ export type CtaLocation =
   | "mobile_sticky";
 
 const siteUrl = String(import.meta.env.VITE_SITE_URL ?? "").replace(/\/$/, "");
+const appUrl = String(
+  import.meta.env.VITE_APP_URL ?? "https://didogi.com",
+).replace(/\/$/, "");
 
 export const site = {
   name: "دیدوجی",
   nameEn: "Didogi",
-  url: siteUrl,
-  email: "hello@didogi.ir",
+  url: siteUrl || "https://didogi.com/landing",
+  email: "hello@didogi.com",
   locale: "fa_IR",
   themeColor: "#05070c",
   city: "تهران",
   title: "دیدوجی | لایوکامرس و فروش زنده در مارکت‌پلیس هوشمند",
   description:
     "در دیدوجی محصول را زنده معرفی کن، با مشتری گفت‌وگو کن و همان لحظه بفروش. مارکت‌پلیس لایوکامرس برای خرید زنده، فروش تعاملی و مزایده آنلاین.",
-  ogImage: "/images/hero-1-1100.webp",
+  ogImage: `${siteUrl || "https://didogi.com/landing"}/images/hero-1-1100.webp`,
+  appUrl,
   cta: {
     buyer: {
       label: "مشاهده لایوها",
-      href: "#join",
+      href: `${appUrl}/live`,
       audience: "buyer" as const,
     },
     seller: {
       label: "شروع فروشندگی",
-      href: "#sellers",
+      href: `${appUrl}/seller/apply`,
       audience: "seller" as const,
     },
   },
