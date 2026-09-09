@@ -10,9 +10,16 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-        },
+        manualChunks(id) {
+          // Group all node_modules into a single 'vendor' chunk
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+          
+          // OPTIONAL: If you want to split specific heavy libraries into their own chunks:
+          // if (id.includes('lodash')) return 'lodash-vendor';
+          // if (id.includes('react')) return 'react-vendor';
+        }
       },
     },
   },
