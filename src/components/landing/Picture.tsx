@@ -1,3 +1,5 @@
+import { publicAsset } from "../../lib/public-asset";
+
 type PictureProps = {
   name: string;
   alt: string;
@@ -23,9 +25,15 @@ export function Picture({
   className = "",
   pictureClassName = "",
 }: PictureProps) {
-  const avif = widths.map((w) => `/images/${name}-${w}.avif ${w}w`).join(", ");
-  const webp = widths.map((w) => `/images/${name}-${w}.webp ${w}w`).join(", ");
-  const fallback = `/images/${name}-${widths[Math.min(1, widths.length - 1)]}.webp`;
+  const avif = widths
+    .map((w) => `${publicAsset(`images/${name}-${w}.avif`)} ${w}w`)
+    .join(", ");
+  const webp = widths
+    .map((w) => `${publicAsset(`images/${name}-${w}.webp`)} ${w}w`)
+    .join(", ");
+  const fallback = publicAsset(
+    `images/${name}-${widths[Math.min(1, widths.length - 1)]}.webp`,
+  );
 
   return (
     <picture className={pictureClassName}>
