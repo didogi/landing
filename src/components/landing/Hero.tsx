@@ -62,10 +62,10 @@ export function Hero() {
           />
         </div>
         <ul className="mt-8 flex flex-wrap gap-2" aria-label="مزیت‌های اصلی">
-          {copy.hero.chips.map((chip, i) => (
+          {copy.hero.chips.map((chip) => (
             <li
               key={chip}
-              className={i === 0 ? "badge-new" : i === 2 ? "badge-special" : "rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/70"}
+              className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/80"
             >
               {chip}
             </li>

@@ -18,7 +18,14 @@ export const site = {
   name: "دیدوجی",
   nameEn: "Didogi",
   url: siteUrl || "https://didogi.com/landing",
-  email: "hello@didogi.com",
+  email: String(import.meta.env.VITE_SUPPORT_EMAIL || "hello@didogi.com"),
+  /** Public business details; empty values are hidden. */
+  phone: String(import.meta.env.VITE_SUPPORT_PHONE ?? "").trim(),
+  address: String(import.meta.env.VITE_SUPPORT_ADDRESS ?? "").trim(),
+  enamad: {
+    id: String(import.meta.env.VITE_ENAMAD_ID ?? "").trim(),
+    code: String(import.meta.env.VITE_ENAMAD_CODE ?? "").trim(),
+  },
   locale: "fa_IR",
   themeColor: "#05070c",
   city: "تهران",
@@ -40,8 +47,9 @@ export const site = {
     },
   },
   social: {
-    instagram: "",
-    telegram: "",
-    bale: "",
+    // Channels without a URL are not shown.
+    instagram: String(import.meta.env.VITE_INSTAGRAM_URL ?? "").trim(),
+    telegram: String(import.meta.env.VITE_TELEGRAM_URL ?? "").trim(),
+    bale: String(import.meta.env.VITE_BALE_URL ?? "").trim(),
   },
 } as const;

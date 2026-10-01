@@ -49,6 +49,13 @@
   --blue-900: 30 58 138; /* #1E3A8A */
   --blue-950: 23 37 84; /* #172554 */
 
+  /* Didogi brand red (logo) — primary CTAs. */
+  --red-50: 254 236 237; /* #FEECED */
+  --red-300: 255 122 126; /* #FF7A7E  highlight on dark surfaces */
+  --red-600: 234 24 31; /* #EA181F  logo red */
+  --red-700: 200 20 26; /* #C8141A  hover */
+  --red-800: 165 16 21; /* #A51015  active */
+
   /* Cyan — innovation accent (2%). Never body text, never primary button fill. */
   --cyan-50: 236 254 255; /* #ECFEFF */
   --cyan-100: 207 250 254; /* #CFFAFE */
@@ -85,12 +92,12 @@
   --popover-foreground: var(--slate-900);
 
   /* Brand / CTA — 8% blue */
-  --primary: var(--blue-600); /* #2563EB  Add to Cart, Buy Now, Checkout */
+  --primary: var(--red-600); /* #EA181F  brand red: primary CTAs */
   --primary-foreground: 255 255 255;
-  --primary-hover: var(--blue-700); /* #1D4ED8 */
-  --primary-active: var(--blue-800);
-  --primary-muted: var(--blue-50);
-  --primary-muted-foreground: var(--blue-700);
+  --primary-hover: var(--red-700);
+  --primary-active: var(--red-800);
+  --primary-muted: var(--red-50);
+  --primary-muted-foreground: var(--red-700);
 
   /* Secondary actions — quiet slate, not a second brand color */
   --secondary: var(--slate-100);
@@ -99,7 +106,7 @@
   --secondary-active: var(--slate-300);
 
   /* Innovation accent — cyan */
-  --accent: var(--cyan-500); /* #06B6D4 */
+  --accent: var(--red-300); /* brand highlight on the dark page */
   --accent-foreground: var(--slate-900); /* never white on cyan */
   --accent-hover: var(--cyan-600);
   --accent-active: var(--cyan-700);
@@ -107,9 +114,9 @@
   --accent-subtle: var(--cyan-100);
 
   /* Special highlight — violet */
-  --highlight: var(--violet-600); /* #7C3AED */
+  --highlight: var(--red-600); /* brand red emphasis */
   --highlight-foreground: 255 255 255;
-  --highlight-hover: var(--violet-700);
+  --highlight-hover: var(--red-700);
   --highlight-muted: var(--violet-50);
   --highlight-muted-foreground: var(--violet-700);
 
@@ -125,7 +132,7 @@
   --border-strong: var(--slate-300);
   --input: var(--slate-200);
   --input-background: 255 255 255;
-  --ring: var(--blue-600);
+  --ring: var(--red-600);
   --ring-offset: 255 255 255;
 
   /* Inverse — footer / dark product media only (still the 20% structure budget) */
@@ -172,7 +179,7 @@
   --primary-hover-hex: #1d4ed8;
   --secondary-hex: #f1f5f9;
   --accent-hex: #06b6d4;
-  --highlight-hex: #7c3aed;
+  --highlight-hex: #ea181f;
   --muted-hex: #f8fafc;
   --muted-foreground-hex: #64748b;
   --border-hex: #e2e8f0;
@@ -195,26 +202,26 @@
   --popover: var(--slate-800);
   --popover-foreground: var(--slate-50);
 
-  --primary: var(--blue-500);
-  --primary-foreground: var(--slate-950);
-  --primary-hover: var(--blue-400);
-  --primary-active: var(--blue-300);
+  --primary: var(--red-600);
+  --primary-foreground: 255 255 255;
+  --primary-hover: var(--red-700);
+  --primary-active: var(--red-800);
   --primary-muted: var(--blue-950);
-  --primary-muted-foreground: var(--blue-300);
+  --primary-muted-foreground: var(--red-300);
 
   --secondary: var(--slate-800);
   --secondary-foreground: var(--slate-50);
   --secondary-hover: var(--slate-700);
   --secondary-active: var(--slate-600);
 
-  --accent: var(--cyan-400);
+  --accent: var(--red-300);
   --accent-foreground: var(--slate-950);
   --accent-hover: var(--cyan-500);
   --accent-active: var(--cyan-600);
   --accent-muted: 8 47 73; /* deep cyan wash */
   --accent-subtle: 21 94 117;
 
-  --highlight: var(--violet-500);
+  --highlight: var(--red-300);
   --highlight-foreground: 255 255 255;
   --highlight-hover: var(--violet-400);
   --highlight-muted: 46 16 101;
@@ -230,7 +237,7 @@
   --border-strong: var(--slate-700);
   --input: var(--slate-700);
   --input-background: var(--slate-950);
-  --ring: var(--blue-400);
+  --ring: var(--red-300);
   --ring-offset: var(--slate-950);
 
   --inverse: 255 255 255;

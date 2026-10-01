@@ -106,8 +106,13 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span className="sr-only">{menuOpen ? "بستن منو" : "باز کردن منو"}</span>
-          <span className="mx-auto block h-px w-6 bg-white" />
-          <span className="mx-auto mt-2 block h-px w-6 bg-white" />
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {menuOpen ? (
+              <path d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
         </button>
       </div>
       {menuOpen && (
