@@ -11,14 +11,14 @@ export type CtaLocation =
 
 const siteUrl = String(import.meta.env.VITE_SITE_URL ?? "").replace(/\/$/, "");
 const appUrl = String(
-  import.meta.env.VITE_APP_URL ?? "https://didogi.com",
+  import.meta.env.VITE_APP_URL ?? "https://didogi.ir",
 ).replace(/\/$/, "");
 
 export const site = {
   name: "دیدوجی",
   nameEn: "Didogi",
-  url: siteUrl || "https://didogi.com/landing",
-  email: String(import.meta.env.VITE_SUPPORT_EMAIL || "hello@didogi.com"),
+  url: siteUrl || "https://didogi.ir/landing",
+  email: String(import.meta.env.VITE_SUPPORT_EMAIL || "hello@didogi.ir"),
   /** Public business details; empty values are hidden. */
   phone: String(import.meta.env.VITE_SUPPORT_PHONE ?? "").trim(),
   address: String(import.meta.env.VITE_SUPPORT_ADDRESS ?? "").trim(),
@@ -32,7 +32,7 @@ export const site = {
   title: "دیدوجی | لایوکامرس و فروش زنده در مارکت‌پلیس هوشمند",
   description:
     "در دیدوجی محصول را زنده معرفی کن، با مشتری گفت‌وگو کن و همان لحظه بفروش. مارکت‌پلیس لایوکامرس برای خرید زنده، فروش تعاملی و مزایده آنلاین.",
-  ogImage: `${siteUrl || "https://didogi.com/landing"}/images/hero-1-1100.webp`,
+  ogImage: `${siteUrl || "https://didogi.ir/landing"}/images/hero-1-1100.webp`,
   appUrl,
   cta: {
     buyer: {

@@ -1,4 +1,4 @@
-# Landing static site — served at https://didogi.com/landing/
+# Landing static site — served at https://didogi.ir/landing/
 FROM node:22-alpine AS builder
 WORKDIR /app
 
@@ -6,8 +6,8 @@ WORKDIR /app
 ENV NODE_ENV=development
 ENV NODE_OPTIONS="--max-old-space-size=512"
 
-ARG VITE_SITE_URL=https://didogi.com/landing
-ARG VITE_APP_URL=https://didogi.com
+ARG VITE_SITE_URL=https://didogi.ir/landing
+ARG VITE_APP_URL=https://didogi.ir
 ENV VITE_SITE_URL=$VITE_SITE_URL
 ENV VITE_APP_URL=$VITE_APP_URL
 ARG VITE_SUPPORT_EMAIL=

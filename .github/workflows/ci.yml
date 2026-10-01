@@ -38,8 +38,8 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Build
         env:
-          VITE_SITE_URL: https://didogi.com/landing
-          VITE_APP_URL: https://didogi.com
+          VITE_SITE_URL: https://didogi.ir/landing
+          VITE_APP_URL: https://didogi.ir
         run: npm run build
 
   docker:
@@ -53,8 +53,8 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            --build-arg VITE_SITE_URL=https://didogi.com/landing \
-            --build-arg VITE_APP_URL=https://didogi.com \
+            --build-arg VITE_SITE_URL=https://didogi.ir/landing \
+            --build-arg VITE_APP_URL=https://didogi.ir \
             -t didogi-landing:ci .
 
   # Dokploy pulls git@github.com:didogi/landing.git on main (SSH).
