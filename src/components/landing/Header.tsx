@@ -69,8 +69,14 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <a href="#top" className="font-display text-xl font-semibold text-white lg:text-2xl">
-          دیدوجی
+        <a href="#top" aria-label="دیدوجی" className="flex items-center">
+          <img
+            src={`${import.meta.env.BASE_URL}brand/logo-full-dark.png`}
+            alt="دیدوجی"
+            width={160}
+            height={42}
+            className="h-8 w-auto sm:h-9"
+          />
         </a>
         <nav className="hidden items-center gap-10 lg:flex" aria-label="ناوبری اصلی">
           {copy.nav.map((item) => (
