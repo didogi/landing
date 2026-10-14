@@ -1,8 +1,8 @@
 # Landing static site — served at https://didogi.ir/landing/
-# Base images come through the Nexus Docker Hub mirror (the build server must
-# `docker login nexus.mrzdev.ir`). Build arg BASE_REGISTRY=docker.io/library
-# switches back to Docker Hub.
-ARG BASE_REGISTRY=nexus.mrzdev.ir/docker-mirror/library
+# Base images: Docker Hub by default. Build arg
+# BASE_REGISTRY=nexus.mrzdev.ir/docker-mirror/library pulls them through the
+# Nexus mirror (the build server must `docker login nexus.mrzdev.ir` first).
+ARG BASE_REGISTRY=docker.io/library
 FROM ${BASE_REGISTRY}/node:22-alpine AS builder
 WORKDIR /app
 
@@ -25,17 +25,18 @@ ARG VITE_BALE_URL=
 ENV VITE_SUPPORT_EMAIL=$VITE_SUPPORT_EMAIL VITE_SUPPORT_PHONE=$VITE_SUPPORT_PHONE VITE_SUPPORT_ADDRESS=$VITE_SUPPORT_ADDRESS VITE_ENAMAD_ID=$VITE_ENAMAD_ID VITE_ENAMAD_CODE=$VITE_ENAMAD_CODE VITE_INSTAGRAM_URL=$VITE_INSTAGRAM_URL VITE_TELEGRAM_URL=$VITE_TELEGRAM_URL VITE_BALE_URL=$VITE_BALE_URL
 
 COPY package.json package-lock.json ./
-# npm via the Nexus mirror when Dokploy Build Secrets NPM_USER/NPM_PASS are set
-# (registry.npmjs.org drops connections from the build server); falls back to
-# the lockfile URLs otherwise. The temp .npmrc is removed in the same layer.
-ARG NPM_REGISTRY=https://nexus.mrzdev.ir/repository/npm-mirror/
+# npm: lockfile URLs by default. Build arg
+# NPM_REGISTRY=https://nexus.mrzdev.ir/repository/npm-mirror/ plus Build Secrets
+# NPM_USER/NPM_PASS switch to the Nexus mirror, 2 connections at a time (its CDN
+# rate-limits bursts). The temp .npmrc is removed in the same layer.
+ARG NPM_REGISTRY=
 RUN --mount=type=secret,id=NPM_USER --mount=type=secret,id=NPM_PASS \
-    if [ -s /run/secrets/NPM_USER ] && [ -s /run/secrets/NPM_PASS ]; then \
+    if [ -n "$NPM_REGISTRY" ] && [ -s /run/secrets/NPM_USER ] && [ -s /run/secrets/NPM_PASS ]; then \
       AUTH=$(printf '%s:%s' "$(cat /run/secrets/NPM_USER)" "$(cat /run/secrets/NPM_PASS)" | base64 | tr -d '\n'); \
       printf 'registry=%s\n//%s:_auth=%s\n' "$NPM_REGISTRY" "${NPM_REGISTRY#https://}" "$AUTH" > /tmp/.npmrc; \
-      export NPM_CONFIG_USERCONFIG=/tmp/.npmrc; \
+      export NPM_CONFIG_USERCONFIG=/tmp/.npmrc NPM_CONFIG_MAXSOCKETS=2; \
     fi; \
-    npm ci --include=dev --ignore-scripts --no-audit --no-fund --maxsockets=2 --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000; \
+    npm ci --include=dev --ignore-scripts --no-audit --no-fund --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000; \
     status=$?; rm -f /tmp/.npmrc; exit $status
 
 COPY . .
