@@ -40,7 +40,9 @@ RUN --mount=type=secret,id=NPM_USER --mount=type=secret,id=NPM_PASS \
     status=$?; rm -f /tmp/.npmrc; exit $status
 
 COPY . .
-RUN npm run build
+# NODE_ENV=development above is only for installing devDependencies; the bundle
+# must be built as production, or Vite emits React's debug build (jsxDEV).
+RUN NODE_ENV=production npm run build
 
 FROM ${BASE_REGISTRY}/nginx:alpine AS runner
 RUN rm -rf /usr/share/nginx/html/*
