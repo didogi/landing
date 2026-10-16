@@ -1,8 +1,5 @@
 # Landing static site — served at https://didogi.ir/landing/
-# Base images: Docker Hub by default. Build arg
-# BASE_REGISTRY=nexus.mrzdev.ir/docker-mirror/library pulls them through the
-# Nexus mirror (the build server must `docker login nexus.mrzdev.ir` first).
-ARG BASE_REGISTRY=docker.io/library
+ARG BASE_REGISTRY=nexus.mrzdev.ir/docker-mirror/library
 FROM ${BASE_REGISTRY}/node:22-alpine AS builder
 WORKDIR /app
 
@@ -25,13 +22,12 @@ ARG VITE_BALE_URL=
 ENV VITE_SUPPORT_EMAIL=$VITE_SUPPORT_EMAIL VITE_SUPPORT_PHONE=$VITE_SUPPORT_PHONE VITE_SUPPORT_ADDRESS=$VITE_SUPPORT_ADDRESS VITE_ENAMAD_ID=$VITE_ENAMAD_ID VITE_ENAMAD_CODE=$VITE_ENAMAD_CODE VITE_INSTAGRAM_URL=$VITE_INSTAGRAM_URL VITE_TELEGRAM_URL=$VITE_TELEGRAM_URL VITE_BALE_URL=$VITE_BALE_URL
 
 COPY package.json package-lock.json ./
-# npm: lockfile URLs by default. Build arg
-# NPM_REGISTRY=https://nexus.mrzdev.ir/repository/npm-mirror/ plus Build Secrets
-# NPM_USER/NPM_PASS switch to the Nexus mirror, 2 connections at a time (its CDN
-# rate-limits bursts). The temp .npmrc is removed in the same layer.
-ARG NPM_REGISTRY=
+ARG NPM_REGISTRY=https://nexus.mrzdev.ir/repository/npm-mirror/
 RUN --mount=type=secret,id=NPM_USER --mount=type=secret,id=NPM_PASS \
-    if [ -n "$NPM_REGISTRY" ] && [ -s /run/secrets/NPM_USER ] && [ -s /run/secrets/NPM_PASS ]; then \
+    if [ -n "$NPM_REGISTRY" ]; then \
+      if [ ! -s /run/secrets/NPM_USER ] || [ ! -s /run/secrets/NPM_PASS ]; then \
+        echo "Build secrets NPM_USER and NPM_PASS are required to install from $NPM_REGISTRY" >&2; exit 1; \
+      fi; \
       AUTH=$(printf '%s:%s' "$(cat /run/secrets/NPM_USER)" "$(cat /run/secrets/NPM_PASS)" | base64 | tr -d '\n'); \
       printf 'registry=%s\n//%s:_auth=%s\n' "$NPM_REGISTRY" "${NPM_REGISTRY#https://}" "$AUTH" > /tmp/.npmrc; \
       export NPM_CONFIG_USERCONFIG=/tmp/.npmrc NPM_CONFIG_MAXSOCKETS=2; \

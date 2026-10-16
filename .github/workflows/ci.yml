@@ -53,7 +53,7 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            --build-arg BASE_REGISTRY=docker.io/library \
+            --build-arg BASE_REGISTRY=docker.io/library --build-arg NPM_REGISTRY= \
             --build-arg VITE_SITE_URL=https://didogi.ir/landing \
             --build-arg VITE_APP_URL=https://didogi.ir \
             -t didogi-landing:ci .
